@@ -81,9 +81,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-db = require('./models/dogwalks.sql');
-
-
 
 
 module.exports = app;
