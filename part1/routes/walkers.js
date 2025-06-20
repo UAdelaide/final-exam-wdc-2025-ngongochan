@@ -3,7 +3,13 @@ var router = express.Router();
 var db = require('../db/db');
 
 // /api/dogs route
-// (request_id, dog_name, requested_time, duration_minutes, location, owner_username)
+// (walker_username, total_ratings, average_rating, completed_walks, location, owner_username)
+
+
+"walker_username": "bobwalker",
+    "total_ratings": 2,
+    "average_rating": 4.5,
+    "completed_walks": 2
 router.get('/', async function(req, res) {
     try {
         const [results] = await db.query(`
