@@ -83,8 +83,12 @@ var walkersRouter = require('./routes/users');
 var requestsRouter = require('./routes/walkrequests');
 
 
+    /api/dogs
+    /api/walkrequests/open
+    /api/walkers/summary
+
 app.use('/api/dogs', dogsRouter);
-app.use('/users', walkersRouter);
+app.use('//api/walkrequests/open', walkersRouter);
 app.use('/auth', requestsRouter);
 
 
