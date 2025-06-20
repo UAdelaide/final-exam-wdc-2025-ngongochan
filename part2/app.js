@@ -100,6 +100,7 @@ app.post('/login', async (req, res) => {
       return res.status(401).send('Invalid username or password');
     }
     const user = rows[0];
+
     req.session.user_id = user.user_id;
     req.session.role = user.role;
 
