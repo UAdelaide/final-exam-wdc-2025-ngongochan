@@ -14,10 +14,10 @@ router.get('/api/dogs', async function(req, res) {
         if (title) {
             [events] = await db.query("SELECT * FROM events WHERE title LIKE ?;", [`%${title}%`]);
         }
-        res.render('admin', {
-            users: users,
+        res.json
+
         });
     } catch(err) {
-        res.status(404).send();
+    res.status(500).json({ error: 'Failed to fetch books' });
     }
 });
