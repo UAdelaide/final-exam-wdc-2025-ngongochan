@@ -14,7 +14,7 @@ router.get('/', async function(req, res) {
             WalkRequests.location,
             Users.username AS owner_username
         FROM WalkRequests
-        JOIN Dogs ON Dogs.dog_id = Users.dog_id
+        JOIN Dogs ON Dogs.dog_id = WalkRequests.dog_id
         JOIN Users ON Dogs.owner_id = Users.user_id
         `);
         res.json(results);
