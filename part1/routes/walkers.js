@@ -10,6 +10,8 @@ router.get('/', async function(req, res) {
         SELECT
             WalkRequests.request_id AS request_id,
             WalkRequests.requested_time,
+            WalkRequests.duration_minutes,
+            WalkRequests.location,
             Users.username AS owner_username
         FROM WalkRequests
         JOIN Users ON Dogs.owner_id = Users.user_id
