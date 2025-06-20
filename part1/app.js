@@ -42,7 +42,7 @@ let db;
       CREATE TABLE IF NOT EXISTS Dogs (
         dog_id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(50) NOT NULL,
-        size ENUM('small', 'medium', 'large') NOT NULL,
+        size ENUM('small', 'medium', 'large') NOT NULL
       )
     `);
 
