@@ -1,3 +1,7 @@
 * {
     font-family: "Nunito";
 }
+
+#app {
+    width: 40
+}
