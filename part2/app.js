@@ -49,13 +49,11 @@ app.post('/login', async (req, res) => {
         if (rows.length === 0) {
             return res.status(401).send('Invalid username or password');
         }
-
         const user = rows[0];
-        
         req.session.user_id = user.user_id;
         req.session.role = user.role;
 
-        // Redirect based on role
+        // redirect based on the user's role
         if (user.role === 'owner') {
         res.redirect('/dashboard/owner');
         } else if (user.role === 'walker') {
