@@ -1,12 +1,10 @@
 const { createApp } = Vue;
     createApp({
-      data() {
-        return {
+      data: {
           dogImage: null
-        };
       },
       methods: {
-        async fetchDog() {
+        fetchDog() {
           try {
             const res = await fetch('https://dog.ceo/api/breeds/image/random');
             const data = await res.json();
