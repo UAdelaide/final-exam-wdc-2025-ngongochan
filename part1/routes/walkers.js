@@ -13,10 +13,10 @@ router.get('/', async function(req, res) {
             AVG(wr.rating) AS average_rating,
             SUM(CASE WHEN wrq.status = 'completed' THEN 1 ELSE 0 END) AS completed_walks
         FROM Users
-        LEFT JOIN WalkRatings wr ON u.user_id = wr.walker_id
+        LEFT JOIN WalkRatings wr ON Users.user_id = wr.walker_id
         LEFT JOIN WalkRequests wrq ON wr.request_id = wrq.request_id
-        WHERE u.role = 'walker'
-        GROUP BY u.user_id;
+        WHERE Users.role = 'walker'
+        GROUP BY Users.user_id;
         `);
         res.json(results);
     } catch (err) {
