@@ -1,9 +1,9 @@
 const express = require('express');
+const app = express();
 const path = require('path');
 const session = require('express-session');
+var mysql = require('mysql2/promise');
 require('dotenv').config();
-
-const app = express();
 
 // Middleware
 app.use(express.urlencoded({ extended: true }));
@@ -124,7 +124,7 @@ app.post('/login', async (req, res) => {
             res.redirect('/');
         }
     } catch (err) {
-        console.error(err)
+        console.error(err);
         res.status(500).json({ error: 'Something went wrong' });
     }
 });
