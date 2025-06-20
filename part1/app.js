@@ -63,7 +63,6 @@ var db;
   }
 })();
 
-
 // Route to return dogs as JSON
 app.get('/', async (req, res) => {
   try {
@@ -85,6 +84,7 @@ var walkRequestsRouter = require('./routes/walkrequests');
 app.use('/api/dogs', dogsRouter);
 app.use('/api/walkers/summary', walkersRouter);
 app.use('/api/walkrequests/open', walkRequestsRouter);
+
 
 
 module.exports = app;
