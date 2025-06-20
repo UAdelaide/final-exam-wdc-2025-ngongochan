@@ -139,13 +139,13 @@
 
         onMounted(() => {
           loadWalks();
-          loadOwnedDogs(); // 👈 Load dogs once app is mounted
+          loadOwnedDogs();
         });
 
         return {
           form,
           walks,
-          ownedDogs, // 👈 return for use in template
+          ownedDogs,
           message,
           error,
           logout,
