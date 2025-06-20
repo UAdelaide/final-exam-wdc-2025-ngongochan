@@ -22,13 +22,8 @@
       <div class="card-body">
         <form @submit.prevent="submitWalkRequest">
           <div class="mb-3">
-            <label for="dogsOwned" class="form-label">Dog ID</label>
-             <label for="dogsOwned">Choose a car:</label>
-
+            <label for="dogsOwned" class="form-label">Select Your Dog</label>
               <select name="dogsOwned" id="cars">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="mercedes">Mercedes</option>
                 <option value="audi">Audi</option>
               </select>
             <input v-model="form.dog_id" type="number" class="form-control" required>
