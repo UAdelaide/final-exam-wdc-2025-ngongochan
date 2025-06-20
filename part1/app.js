@@ -79,11 +79,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 var dogsRouter = require('./routes/dogs');
-// var walkersRouter = require('./routes/users');
+var walkersRouter = require('./routes/users');
 // var requestsRouter = require('./routes/walkrequests');
 
 app.use('/api/dogs', dogsRouter);
-// app.use('/api/walkrequests/open', requestsRouter);
+app.use('/api/walkrequests/open', requestsRouter);
 // app.use('/api/walkers/summary', walkersRouter);
 
 
