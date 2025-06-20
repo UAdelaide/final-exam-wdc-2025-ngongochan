@@ -14,9 +14,7 @@ router.get('/api/dogs', async function(req, res) {
         if (title) {
             [events] = await db.query("SELECT * FROM events WHERE title LIKE ?;", [`%${title}%`]);
         }
-        res.json
-
-        
+        res.json(books);
     } catch(err) {
         res.status(500).json({ error: 'Failed to fetch books' });
     }
