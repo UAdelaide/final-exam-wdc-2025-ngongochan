@@ -80,14 +80,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var dogsRouter = require('./routes/dogs');
 var walkersRouter = require('./routes/users');
-var authRouter = require('./routes/auth');
-
+var requestsRouter = require('./routes/walkrequests');
 
 
 app.use('/', dogsRouter);
 app.use('/users', walkersRouter);
 app.use('/auth', requestsRouter);
-
 
 
 
