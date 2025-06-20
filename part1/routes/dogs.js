@@ -8,8 +8,8 @@ router.get('/api/dogs', async function(req, res) {
     try {
         const email = req.query.email;
         console.log(email);
-        let [dogs] = await db.query("SELECT * FROM users;");
-        let [events] = await db.query("SELECT * FROM events;");
+        let [dogs] = await db.query("SELECT * FROM Dogs;");
+        let [users] = await db.query("SELECT * FROM Users;");
         if (email) {
             [users] = await db.query("SELECT * FROM users WHERE email LIKE ?;", [`%${email}%`]);
         }
