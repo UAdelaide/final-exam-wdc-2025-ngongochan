@@ -130,5 +130,5 @@ app.post('/logout', (req, res) => {
 });
 
 
-// Export the app instead of listening here
+// export the app instead of listening
 module.exports = app;
