@@ -65,19 +65,11 @@ let db;
 })();
 
 
-INSERT INTO Dogs (name, size) VALUES
-(  'Max',  'medium'),
-(  'Bella',  'small'),
-(  'Toro',  'large'),
-(  'Min',  'small'),
-(  'Noel',  'large'),
-
-
 // Route to return books as JSON
 app.get('/', async (req, res) => {
   try {
-    const [books] = await db.execute('SELECT * FROM books');
-    res.json(books);
+    const [dogs] = await db.execute('SELECT * FROM books');
+    res.json(dogs);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch books' });
   }
