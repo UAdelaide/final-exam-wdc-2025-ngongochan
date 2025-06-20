@@ -21,7 +21,7 @@ let db;
       host: '127.0.0.1',
       user: 'root',
       password: '', // Set your MySQL root password
-      database: 'testdb'
+      database: 'DogWalkS'
     });
 
     // Create the database if it doesn't exist
