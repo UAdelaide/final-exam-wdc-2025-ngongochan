@@ -24,7 +24,7 @@ var db = require('../part1/db/db');
 
 
 
-
+// testing if I should place this here because I got yelled by the terminal
 const connection = await mysql.createConnection({
     socketPath: '/var/run/mysqld/mysqld.sock',
     host: '127.0.0.1',
@@ -34,7 +34,7 @@ const connection = await mysql.createConnection({
 });
 
 
-// testing login and logout
+// testing login and logout         --- L
 app.use(session({
   secret: 'mysecret',
   cookie: {
