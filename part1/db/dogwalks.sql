@@ -57,7 +57,7 @@ CREATE TABLE WalkRatings (
 
 
 
--- Part1-5: populate data
+-- Part1-5: populate data to test queries logic
 INSERT INTO Users (username, email, password_hash, role) VALUES
   ('alice123', 'alice@example.com', 'hashed123', 'owner'),
   ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
