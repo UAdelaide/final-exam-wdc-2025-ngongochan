@@ -64,8 +64,11 @@ let db;
 
 
 INSERT INTO Dogs (name, size) VALUES
-(  'Max',  'medium',
-)
+(  'Max',  'medium'),
+(  'Max',  'medium'),
+(  'Max',  'medium'),
+(  'Max',  'medium'),
+(  'Max',  'medium'),
 
 
 // Route to return books as JSON
