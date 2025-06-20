@@ -76,7 +76,7 @@ app.get('/', async (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
+// routers
 var dogsRouter = require('./routes/dogs');
 var walkersRouter = require('./routes/walkers');
 var walkRequestsRouter = require('./routes/walkrequests');
