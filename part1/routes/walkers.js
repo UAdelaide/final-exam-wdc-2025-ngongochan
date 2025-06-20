@@ -9,7 +9,7 @@ router.get('/', async function(req, res) {
         const [results] = await db.query(`
         SELECT
             WalkRequests.request_id,
-            Dogs.
+            Dogs.name AS dog_name,
             WalkRequests.requested_time,
             WalkRequests.duration_minutes,
             WalkRequests.location,
