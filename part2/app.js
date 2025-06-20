@@ -34,7 +34,7 @@ const connection = await mysql.createConnection({
 });
 
 
-// testing login and logout         --- L
+// testing login and logout         --- LOGIN WORKS!!
 app.use(session({
   secret: 'mysecret',
   cookie: {
