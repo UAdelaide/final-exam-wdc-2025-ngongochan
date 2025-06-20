@@ -78,7 +78,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-var dogsRouter = require('./routes/dogs')(db);
+var dogsRouter = require('./routes/dogs');
 // var walkersRouter = require('./routes/users');
 // var requestsRouter = require('./routes/walkrequests');
 
