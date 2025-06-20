@@ -5,7 +5,7 @@ const session = require('express-session');
 var mysql = require('mysql2/promise');
 require('dotenv').config();
 
-// Middleware
+// middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
