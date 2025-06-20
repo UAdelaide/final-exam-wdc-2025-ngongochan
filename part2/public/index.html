@@ -75,6 +75,14 @@
           console.error('Failed to load dogs:', err);
         }
       }
+      async created() {
+        try {
+          const res = await fetch('https://dog.ceo/api/breeds/image/random');
+          const data = await res.json();
+          this.dogPhotoUrl = data.message;
+        } catch (err) {
+          console.error('Failed to load dog photo:', err);
+        }
     }).mount('#app');
   </script>
 
