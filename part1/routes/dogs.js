@@ -8,8 +8,9 @@ router.get('/api/dogs', async function(req, res) {
     try {
         let [dogs] = await db.query("SELECT * FROM Dogs;");
         let [users] = await db.query("SELECT * FROM Users;");
+        let dogsResponse;
 
-        res.json(books);
+        res.json(dogsResponse);
     } catch(err) {
         res.status(500).json({ error: 'Failed to fetch books' });
     }
