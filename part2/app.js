@@ -10,14 +10,65 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
+
+
+
+
 // testing if I should place this here because I got yelled by the terminal
-const connection = await mysql.createConnection({
-    socketPath: '/var/run/mysqld/mysqld.sock',
-    host: '127.0.0.1',
-    user: 'root',
-    password: '', // Set MySQL root password
-    database: 'DogWalkService'
-});
+(async () => {
+  try {
+    // Connect to MySQL without specifying a database
+    const connection = await mysql.createConnection({
+      socketPath: '/var/run/mysqld/mysqld.sock',
+      host: '127.0.0.1',
+      user: 'root',
+      password: '', // Set MySQL root password
+      database: 'DogWalkService'
+    });
+
+    // Create the database if it doesn't exist
+    await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
+    await connection.end();
+
+    // Now connect to the created database
+    db = await mysql.createConnection({
+      socketPath: '/var/run/mysqld/mysqld.sock',
+      host: '127.0.0.1',
+      user: 'root',
+      password: '',
+      database: 'DogWalkService'
+    });
+
+    // Create a table if it doesn't exist
+    await db.execute(`
+      CREATE TABLE IF NOT EXISTS Dogs (
+        dog_id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(50) NOT NULL,
+        size ENUM('small', 'medium', 'large') NOT NULL
+      )
+    `);
+
+    // Insert data if table is empty
+    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    if (rows[0].count === 0) {
+      await db.execute(`
+        INSERT INTO Dogs (name, size) VALUES
+        (  'Max',  'medium'),
+        (  'Bella',  'small'),
+        (  'Toro',  'large'),
+        (  'Min',  'small'),
+        (  'Noel',  'large')
+      `);
+    }
+  } catch (err) {
+    console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
+  }
+})();
+
+
+
+
+
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
