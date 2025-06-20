@@ -59,74 +59,75 @@ CREATE TABLE WalkRatings (
 
 -- Part1-5: populate data
 INSERT INTO Users (username, email, password_hash, role) VALUES
-('alice123', 'alice@example.com', 'hashed123', 'owner'),
-('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-('carol123', 'carol@example.com', 'hashed789', 'owner'),
-('walkerkrixi', 'krixi@example.com', 'hashed012', 'walker'),
-('taara', 'taara@example.com', 'hashed456', 'walker')
+  ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+  ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+  ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+  ('walkerkrixi', 'krixi@example.com', 'hashed012', 'walker'),
+  ('taara', 'taara@example.com', 'hashed456', 'walker')
 ;
 
 INSERT INTO Dogs (name, size, owner_id) VALUES
-(
-  'Max',
-  'medium',
-  (SELECT user_id FROM Users WHERE username = 'alice123')
-),
-(
-  'Bella',
-  'small',
-  (SELECT user_id FROM Users WHERE username = 'carol123')
-),
-(
-  'Min',
-  'small',
-  (SELECT user_id FROM Users WHERE username = 'alice123')
-),
-(
-  'Toro',
-  'large',
-  (SELECT user_id FROM Users WHERE username = 'alice123')
-),
-(
-  'Noel',
-  'large',
-  (SELECT user_id FROM Users WHERE username = 'carol123')
-)
+  (
+    'Max',
+    'medium',
+    (SELECT user_id FROM Users WHERE username = 'alice123')
+  ),
+  (
+    'Bella',
+    'small',
+    (SELECT user_id FROM Users WHERE username = 'carol123')
+  ),
+  (
+    'Min',
+    'small',
+    (SELECT user_id FROM Users WHERE username = 'alice123')
+  ),
+  (
+    'Toro',
+    'large',
+    (SELECT user_id FROM Users WHERE username = 'alice123')
+  ),
+  (
+    'Noel',
+    'large',
+    (SELECT user_id FROM Users WHERE username = 'carol123')
+  )
 ;
 
 INSERT INTO WalkRequests (requested_time, duration_minutes, location, status, dog_id) VALUES
-(
-  '2025-06-10 08:00:00',
-  30,
-  'Parklands',
-  'open',
-  (SELECT dog_id FROM Dogs WHERE name = 'Max')
-),
-(
-  '2025-06-10 08:00:00',
-  45,
-  'Beachside Ave',
-  'accepted',
-  (SELECT dog_id FROM Dogs WHERE name = 'Bella')
-),
-(
-  '2025-10-10 11:00:00',
-  30,
-  'Prospect Rd',
-  'accepted',
-  (SELECT dog_id FROM Dogs WHERE name = 'Toro')
-),
-(
-  '2025-07-27 06:25:00',
-  10,
-  'Rundle Street',
-  'accepted',
-  (SELECT dog_id FROM Dogs WHERE name = 'Min')
-),
-(
-  '2025-06-24 10:30:00',
-  30,
-  'North Terrace',
-  'open',
-  (SELECT dog_id FROM Dogs WHERE name = 'Noel')
-);
+  (
+    '2025-06-10 08:00:00',
+    30,
+    'Parklands',
+    'open',
+    (SELECT dog_id FROM Dogs WHERE name = 'Max')
+  ),
+  (
+    '2025-06-10 08:00:00',
+    45,
+    'Beachside Ave',
+    'accepted',
+    (SELECT dog_id FROM Dogs WHERE name = 'Bella')
+  ),
+  (
+    '2025-10-10 11:00:00',
+    30,
+    'Prospect Rd',
+    'accepted',
+    (SELECT dog_id FROM Dogs WHERE name = 'Toro')
+  ),
+  (
+    '2025-07-27 06:25:00',
+    10,
+    'Rundle Street',
+    'accepted',
+    (SELECT dog_id FROM Dogs WHERE name = 'Min')
+  ),
+  (
+    '2025-06-24 10:30:00',
+    30,
+    'North Terrace',
+    'open',
+    (SELECT dog_id FROM Dogs WHERE name = 'Noel')
+  )
+;
