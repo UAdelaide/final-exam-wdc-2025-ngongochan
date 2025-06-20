@@ -18,6 +18,6 @@ router.get('/api/dogs', async function(req, res) {
             users: users,
         });
     } catch(err) {
-        res.status(404)
+        res.status(404).send();
     }
 });
