@@ -31,6 +31,6 @@ button {
     color: white;
 }
 
-button:hover, button:focus {
+button:hover {
     background-color: lightgray;
 }
