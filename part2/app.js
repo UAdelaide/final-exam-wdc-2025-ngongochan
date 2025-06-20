@@ -83,7 +83,7 @@ app.use('/api/users', userRoutes);
 
 
 
-// testing login and logout         --- LOGIN WORKS!!
+// testing login and logout --- LOGIN WORKS!!
 app.use(session({
   secret: 'mysecret',
   cookie: {
