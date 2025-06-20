@@ -12,9 +12,9 @@ router.get('/', async function(req, res) {
         FROM Dogs
         JOIN Users ON Dogs.owner_id = Users.user_id
         `);
-        res.json(results); // return the array of dog info objects
+        res.json(results);
     } catch (err) {
-        console.error(err); // optional: log the error
+        console.error(err);
         res.status(500).json({ error: 'Failed to fetch dogs' });
     }
 });
