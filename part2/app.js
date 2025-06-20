@@ -40,7 +40,7 @@ var db = require('../part1/db/db');
       database: 'DogWalkService'
     });
 
-    // Create a table if it doesn't exist
+    // create a table if it doesn't exist
     await db.execute(`
       CREATE TABLE IF NOT EXISTS Dogs (
         dog_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -49,7 +49,7 @@ var db = require('../part1/db/db');
       )
     `);
 
-    // Insert data if table is empty
+    // insert data if table is empty
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
     if (rows[0].count === 0) {
       await db.execute(`
@@ -71,7 +71,7 @@ var db = require('../part1/db/db');
 
 
 
-// Routes
+// routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
