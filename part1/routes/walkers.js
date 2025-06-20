@@ -3,6 +3,14 @@ var router = express.Router();
 var db = require('../db/db');
 
 // /api/dogs route  (dog_name, size, owner_username)
+
+"request_id": 1,
+    "dog_name": "Max",
+    "requested_time": "2025-06-10T08:00:00.000Z",
+    "duration_minutes": 30,
+    "location": "Parklands",
+    "owner_username": "alice123"
+
 router.get('/', async function(req, res) {
     try {
         const [results] = await db.query(`
