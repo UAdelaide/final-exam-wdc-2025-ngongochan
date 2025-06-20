@@ -122,19 +122,19 @@
           loadWalks();
         });
 
-        return {
-          form,
-          walks,
-          message,
-          error,
-          submitWalkRequest
-        };
-
         async function logout() {
           await fetch('/logout', { method: 'POST' });
           // window.location.href = '/';
         };
 
+        return {
+          form,
+          walks,
+          message,
+          error,
+          logout,
+          submitWalkRequest
+        };
       }
     }).mount('#app');
   </script>
