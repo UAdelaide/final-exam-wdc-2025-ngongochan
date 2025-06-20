@@ -46,7 +46,10 @@ app.post('/login', async (req, res) => {
             'SELECT * FROM Users WHERE username = ? AND password_hash = ?',
             [username, password]
         );
-        const role = 
+        const role = await db.execute(
+            'SELECT * FROM Users WHERE username = ? AND password_hash = ?',
+            [username, password]
+        );
         if (rows.length === 1) {
             req.session.user_id = rows[0].user_id;
             //   res.json({ message: 'Logged in!', user_id: req.session.user_id });
