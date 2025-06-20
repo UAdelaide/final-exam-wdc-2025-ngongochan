@@ -3,21 +3,20 @@ var router = express.Router();
 
 // /api/dogs route  (dog_name, size, owner_username)
 router.get('/api/dogs', async function(req, res) {
-  try {
-    const [results] = await db.query(`
-      SELECT
-        Dogs.name AS dog_name,
-        Dogs.size,
-        Users.username AS owner_username
-      FROM Dogs
-      JOIN Users ON Dogs.owner_id = Users.user_id
-    `);
-    res.json(results); // return the array of dog info objects
-    
-  } catch (err) {
-    console.error(err); // optional: log the error
-    res.status(500).json({ error: 'Failed to fetch dogs' });
-  }
+    try {
+        const [results] = await db.query(`
+        SELECT
+            Dogs.name AS dog_name,
+            Dogs.size,
+            Users.username AS owner_username
+        FROM Dogs
+        JOIN Users ON Dogs.owner_id = Users.user_id
+        `);
+        res.json(results); // return the array of dog info objects
+    } catch (err) {
+        console.error(err); // optional: log the error
+        res.status(500).json({ error: 'Failed to fetch dogs' });
+    }
 });
 
 module.exports = router;
