@@ -48,6 +48,7 @@ app.post('/login', async (req, res) => {
     if (rows.length === 1) {
       req.session.user_id = rows[0].user_id;
       res.json({ message: 'Logged in!', user_id: req.session.user_id });
+      
     } else {
       res.status(401).json({ error: 'Invalid username or password' });
     }
