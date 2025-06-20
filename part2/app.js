@@ -11,8 +11,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 
-
-
 var db = require('../part1/db/db');
 
 // testing if I should place this here because I got yelled by the terminal
@@ -67,20 +65,12 @@ var db = require('../part1/db/db');
 })();
 
 
-
-
-
-
 // routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
-
-
-
-
 
 
 // testing login and logout --- LOGIN WORKS!!
@@ -138,8 +128,6 @@ app.post('/logout', (req, res) => {
     res.json({ message: 'Logged out!' });
   });
 });
-
-
 
 
 // Export the app instead of listening here
