@@ -112,19 +112,25 @@ INSERT INTO WalkRequests (requested_time, duration_minutes, location, status, do
   'Beachside Ave',
   'accepted',
   (SELECT dog_id FROM Dogs WHERE name = 'Bella')
-)
-;
-
-
-
-INSERT INTO WalkRequests (requested_time, duration_minutes, location, status, dog_id)
-VALUES (
+),
+(
   '2025-10-10 11:00:00',
   30,
   'Prospect Rd',
   'accepted',
   (SELECT dog_id FROM Dogs WHERE name = 'Toro')
-);
+),
+(
+  '2025-07-27 06:25:00',
+  10,
+  'Rundle Street',
+  'accepted',
+  (SELECT dog_id FROM Dogs WHERE name = 'Min')
+)
+;
+
+
+
 
 INSERT INTO WalkRequests (requested_time, duration_minutes, location, status, dog_id)
 VALUES (
