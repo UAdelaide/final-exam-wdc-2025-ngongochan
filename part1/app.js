@@ -63,11 +63,10 @@ let db;
 })();
 
 
-INSERT INTO Dogs (name, size) VALUES (
-  'Max',
-  'medium',
-  (SELECT user_id FROM Users WHERE username = 'alice123')
-);
+INSERT INTO Dogs (name, size) VALUES
+(  'Max',  'medium',
+)
+
 
 // Route to return books as JSON
 app.get('/', async (req, res) => {
