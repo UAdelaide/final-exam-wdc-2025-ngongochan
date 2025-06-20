@@ -21,7 +21,7 @@ router.get('/', async function(req, res) {
         res.json(results);
     } catch (err) {
         console.error(err);
-        res.status(500).json({ error: 'Failed to fetch walkers' });
+        res.status(500).json({ error: 'Failed to fetch walk requests' });
     }
 });
 
