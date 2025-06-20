@@ -6,8 +6,6 @@ var router = express.Router();
 // "owner_username": "alice123"
 router.get('/api/dogs', async function(req, res) {
     try {
-        const email = req.query.email;
-        console.log(email);
         let [dogs] = await db.query("SELECT * FROM Dogs;");
         let [users] = await db.query("SELECT * FROM Users;");
         if (email) {
@@ -20,6 +18,6 @@ router.get('/api/dogs', async function(req, res) {
             users: users,
         });
     } catch(err) {
-        res.render('error');
+        res.status(404)
     }
 });
