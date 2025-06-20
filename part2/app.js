@@ -42,7 +42,7 @@ app.use(session({
 
 // LOG IN
 app.post('/login', async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password_hash } = req.body;
     try {
         const [rows] = await db.execute(
             'SELECT * FROM Users WHERE username = ? AND password_hash = ?',
