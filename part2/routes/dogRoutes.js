@@ -15,7 +15,8 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/owned', async (req, res) => {
-  const ownerId = req.session.user_id;
+  const ownerId = req.session?.user_id; // Safe access
+
   if (!ownerId) {
     return res.status(401).json({ error: 'Not logged in' });
   }
