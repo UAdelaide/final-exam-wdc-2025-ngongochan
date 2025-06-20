@@ -69,7 +69,8 @@
     const { createApp } = Vue;
     createApp({
       data() {
-        const username = req.session.username;
+
+        var dogs
 
         return {
           message: 'Welcome to the Dog Walking Service!'
