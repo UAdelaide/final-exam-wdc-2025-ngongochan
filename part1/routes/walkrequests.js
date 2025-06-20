@@ -2,7 +2,7 @@ const express = require('express');
 var router = express.Router();
 var db = require('../db/db');
 
-// /api/dogs route
+// /api/walkrequests/open
 // (request_id, dog_name, requested_time, duration_minutes, location, owner_username)
 router.get('/', async function(req, res) {
     try {

@@ -4,12 +4,6 @@ var db = require('../db/db');
 
 // /api/walkers/summary
 // (walker_username, total_ratings, average_rating, completed_walks)
-
-
-"walker_username": "bobwalker",
-    "total_ratings": 2,
-    "average_rating": 4.5,
-    "completed_walks": 2
 router.get('/', async function(req, res) {
     try {
         const [results] = await db.query(`
