@@ -18,10 +18,9 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
-
-
-
 var db = require('../part1/db/db');
+
+
 
 // testing login and logout
 app.use(session({
@@ -54,9 +53,9 @@ app.post('/login', async (req, res) => {
 
         // redirect based on the user's role
         if (user.role === 'owner') {
-        res.redirect('./public/owner-dashboard.html');
+        res.redirect('/owner-dashboard.html');
         } else if (user.role === 'walker') {
-        res.redirect('./public/walker-dashboard.html');
+        res.redirect('/walker-dashboard.html');
         } else {
         res.redirect('/');
         }
