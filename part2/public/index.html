@@ -74,8 +74,9 @@
         } catch (err) {
           console.error('Failed to load dogs:', err);
         }
-      }
-      async created() {
+      },
+
+      async createDogPhoto() {
         try {
           const res = await fetch('https://dog.ceo/api/breeds/image/random');
           const data = await res.json();
