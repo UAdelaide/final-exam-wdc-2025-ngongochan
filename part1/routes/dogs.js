@@ -1,22 +1,25 @@
+// routes/dogs.js
 const express = require('express');
-var router = express.Router();
 
-// /api/dogs route  (dog_name, size, owner_username)
-router.get('/', async function(req, res) {
+module.exports = function(db) {
+  const router = express.Router();
+
+  router.get('/', async function(req, res) {
     try {
-        const [results] = await db.query(`
+      const [results] = await db.query(`
         SELECT
-            Dogs.name AS dog_name,
-            Dogs.size,
-            Users.username AS owner_username
+          Dogs.name AS dog_name,
+          Dogs.size,
+          Users.username AS owner_username
         FROM Dogs
         JOIN Users ON Dogs.owner_id = Users.user_id
-        `);
-        res.json(results);
+      `);
+      res.json(results);
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Failed to fetch dogs' });
+      console.error(err);
+      res.status(500).json({ error: 'Failed to fetch dogs' });
     }
-});
+  });
 
-module.exports = router;
+  return router;
+};
