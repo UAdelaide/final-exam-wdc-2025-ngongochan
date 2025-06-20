@@ -101,7 +101,6 @@ app.post('/login', async (req, res) => {
         return res.status(400).json({ error: 'Username and password are required.' });
     }
 
-
     try {
         const [rows] = await db.execute(
             'SELECT * FROM Users WHERE username = ? AND password_hash = ?',
