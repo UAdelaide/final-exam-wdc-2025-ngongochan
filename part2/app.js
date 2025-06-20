@@ -46,14 +46,11 @@ app.post('/login', async (req, res) => {
             'SELECT * FROM Users WHERE username = ? AND password_hash = ?',
             [username, password]
         );
-        if (rows.length === 1) {
-            req.session.user_id = rows[0].user_id;
-            //   res.json({ message: 'Logged in!', user_id: req.session.user_id });
-            res.redirect('./public/owner-dashboard.html');
-        } else {
-            res.status(401).json({ error: 'Invalid username or password' });
-        }
-    } catch (err) {
+if (rows.length === 0) {
+      return res.status(401).send('Invalid credentials');
+    }
+
+    const user = rows[0];    } catch (err) {
         res.status(500).json({ error: 'Something went wrong' });
     }
 });
