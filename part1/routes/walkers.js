@@ -8,15 +8,16 @@ router.get('/', async function(req, res) {
     try {
         const [results] = await db.query(`
         SELECT
-            WalkRequests.request_id,
-            Dogs.name AS dog_name,
-            WalkRequests.requested_time,
-            WalkRequests.duration_minutes,
-            WalkRequests.location,
-            Users.username AS owner_username
-        FROM WalkRequests
-        JOIN Dogs ON Dogs.dog_id = WalkRequests.dog_id
-        JOIN Users ON Dogs.owner_id = Users.user_id
+            u.username AS walker_username,
+            COUNT(wr.rating_id) AS total_ratings,
+            AVG(wr.rating) AS average_rating,
+            SUM(CASE WHEN wrq.status = 'completed' THEN 1 ELSE 0 END) AS completed_walks
+        FROM Users u
+        LEFT JOIN WalkRatings wr ON u.user_id = wr.walker_id
+        LEFT JOIN WalkRequests wrq ON wr.request_id = wrq.request_id
+        WHERE u.role = 'walker'
+        GROUP BY u.user_id;
+
         `);
         res.json(results);
     } catch (err) {
