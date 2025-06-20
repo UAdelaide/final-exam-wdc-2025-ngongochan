@@ -46,11 +46,12 @@ app.post('/login', async (req, res) => {
             'SELECT * FROM Users WHERE username = ? AND password_hash = ?',
             [username, password]
         );
-if (rows.length === 0) {
-      return res.status(401).send('Invalid credentials');
-    }
+        if (rows.length === 0) {
+            return res.status(401).send('Invalid credentials');
+        }
 
-    const user = rows[0];    } catch (err) {
+        const user = rows[0];
+    } catch (err) {
         res.status(500).json({ error: 'Something went wrong' });
     }
 });
