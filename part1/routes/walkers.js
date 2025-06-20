@@ -9,12 +9,12 @@ router.get('/', async function(req, res) {
         const [results] = await db.query(`
         SELECT
             Users.username AS walker_username,
-            COUNT(wr.rating_id) AS total_ratings,
+            COUNT(WalkRatings.rating_id) AS total_ratings,
             AVG(wr.rating) AS average_rating,
             SUM(CASE WHEN wrq.status = 'completed' THEN 1 ELSE 0 END) AS completed_walks
         FROM Users
-        LEFT JOIN WalkRatings wr ON Users.user_id = wr.walker_id
-        LEFT JOIN WalkRequests wrq ON wr.request_id = wrq.request_id
+        LEFT JOIN WalkRatings ON Users.user_id = WalkRatings.walker_id
+        LEFT JOIN WalkRequests wrq ON WalkRatings.request_id = wrq.request_id
         WHERE Users.role = 'walker'
         GROUP BY Users.user_id;
         `);
