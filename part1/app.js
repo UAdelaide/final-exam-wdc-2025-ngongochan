@@ -84,18 +84,9 @@ var authRouter = require('./routes/auth');
 
 
 
-
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
-app.use('/event', eventRouter);
-app.use('/mail', mailRouter);
-app.use('/admin', adminRouter);
-
-
 
 
 
