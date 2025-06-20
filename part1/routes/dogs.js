@@ -8,12 +8,7 @@ router.get('/api/dogs', async function(req, res) {
     try {
         let [dogs] = await db.query("SELECT * FROM Dogs;");
         let [users] = await db.query("SELECT * FROM Users;");
-        if (email) {
-            [users] = await db.query("SELECT * FROM users WHERE email LIKE ?;", [`%${email}%`]);
-        }
-        if (title) {
-            [events] = await db.query("SELECT * FROM events WHERE title LIKE ?;", [`%${title}%`]);
-        }
+
         res.json(books);
     } catch(err) {
         res.status(500).json({ error: 'Failed to fetch books' });
