@@ -2,8 +2,8 @@ const express = require('express');
 var router = express.Router();
 var db = require('../db/db');
 
-// /api/dogs route
-// (walker_username, total_ratings, average_rating, completed_walks, location, owner_username)
+// /api/walkers/summary
+// (walker_username, total_ratings, average_rating, completed_walks)
 
 
 "walker_username": "bobwalker",
