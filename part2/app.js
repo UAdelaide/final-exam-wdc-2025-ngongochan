@@ -10,6 +10,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
+// testing if I should place this here because I got yelled by the terminal
+const connection = await mysql.createConnection({
+    socketPath: '/var/run/mysqld/mysqld.sock',
+    host: '127.0.0.1',
+    user: 'root',
+    password: '', // Set MySQL root password
+    database: 'DogWalkService'
+});
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
@@ -22,16 +30,6 @@ var db = require('../part1/db/db');
 
 
 
-
-
-// testing if I should place this here because I got yelled by the terminal
-const connection = await mysql.createConnection({
-    socketPath: '/var/run/mysqld/mysqld.sock',
-    host: '127.0.0.1',
-    user: 'root',
-    password: '', // Set MySQL root password
-    database: 'DogWalkService'
-});
 
 
 // testing login and logout         --- LOGIN WORKS!!
