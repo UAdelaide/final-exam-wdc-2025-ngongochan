@@ -1,5 +1,5 @@
 * {
-    font: 0.5rem "Nunito";
+    font-family: "Nunito";
 }
 
 #app {
@@ -9,4 +9,8 @@
 
 p {
     font-size: 12px;
+}
+
+h2 {
+        font-size: 16px;
 }
