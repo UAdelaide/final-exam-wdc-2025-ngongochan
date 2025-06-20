@@ -73,7 +73,7 @@ app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
 
-// testing login and logout --- LOGIN WORKS!!
+// testing login and logout
 app.use(session({
   secret: 'mysecret',
   cookie: {
