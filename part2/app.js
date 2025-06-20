@@ -39,22 +39,22 @@ app.use(session({
 }));
 
 app.post('/login', async (req, res) => {
-  const { username, password } = req.body;
-  try {
-    const [rows] = await db.execute(
-      'SELECT * FROM Users WHERE username = ? AND password_hash = ?',
-      [username, password]
-    );
-    if (rows.length === 1) {
-      req.session.user_id = rows[0].user_id;
-    //   res.json({ message: 'Logged in!', user_id: req.session.user_id });
-      res.redirect('./public/owner-dashboard.html');
-    } else {
-      res.status(401).json({ error: 'Invalid username or password' });
+    const { username, password } = req.body;
+    try {
+        const [rows] = await db.execute(
+            'SELECT * FROM Users WHERE username = ? AND password_hash = ?',
+            [username, password]
+        );
+        if (rows.length === 1) {
+        req.session.user_id = rows[0].user_id;
+        //   res.json({ message: 'Logged in!', user_id: req.session.user_id });
+        res.redirect('./public/owner-dashboard.html');
+        } else {
+        res.status(401).json({ error: 'Invalid username or password' });
+        }
+    } catch (err) {
+        res.status(500).json({ error: 'Something went wrong' });
     }
-  } catch (err) {
-    res.status(500).json({ error: 'Something went wrong' });
-  }
 });
 
 // LOGOUT ROUTE
