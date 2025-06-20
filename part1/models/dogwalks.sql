@@ -94,10 +94,6 @@ INSERT INTO Dogs (name, size, owner_id) VALUES
 )
 ;
 
-
-
-
-
 INSERT INTO WalkRequests (requested_time, duration_minutes, location, status, dog_id) VALUES
 (
   '2025-06-10 08:00:00',
@@ -126,23 +122,8 @@ INSERT INTO WalkRequests (requested_time, duration_minutes, location, status, do
   'Rundle Street',
   'accepted',
   (SELECT dog_id FROM Dogs WHERE name = 'Min')
-)
-;
-
-
-
-
-INSERT INTO WalkRequests (requested_time, duration_minutes, location, status, dog_id)
-VALUES (
-  '2025-07-27 06:25:00',
-  10,
-  'Rundle Street',
-  'accepted',
-  (SELECT dog_id FROM Dogs WHERE name = 'Min')
-);
-
-INSERT INTO WalkRequests (requested_time, duration_minutes, location, status, dog_id)
-VALUES (
+),
+(
   '2025-06-24 10:30:00',
   30,
   'North Terrace',
