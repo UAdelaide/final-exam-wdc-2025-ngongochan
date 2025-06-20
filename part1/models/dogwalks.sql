@@ -86,6 +86,11 @@ INSERT INTO Dogs (name, size, owner_id) VALUES
   'Toro',
   'large',
   (SELECT user_id FROM Users WHERE username = 'alice123')
+),
+(
+  'Noel',
+  'large',
+  (SELECT user_id FROM Users WHERE username = 'carol123')
 )
 ;
 
@@ -93,8 +98,8 @@ INSERT INTO Dogs (name, size, owner_id) VALUES
 
 
 
-INSERT INTO WalkRequests (requested_time, duration_minutes, location, status, dog_id)
-VALUES (
+INSERT INTO WalkRequests (requested_time, duration_minutes, location, status, dog_id) VALUES
+(
   '2025-06-10 08:00:00',
   30,
   'Parklands',
