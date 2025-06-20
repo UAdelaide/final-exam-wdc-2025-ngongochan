@@ -45,9 +45,9 @@ app.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
     // debugging SQL NULL parameters
-    console.log('Request body:', req.body);
+    console.log('request body:', req.body);
     if (typeof username === 'undefined' || typeof password === 'undefined') {
-        return res.status(400).json({ error: 'Username and password are required' });
+        return res.status(400).json({ error: 'Username and password are required.' });
     }
     try {
         const [rows] = await db.execute(
