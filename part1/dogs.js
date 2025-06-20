@@ -1,5 +1,4 @@
 const { createApp } = Vue;
-
     createApp({
       data() {
         return {
@@ -18,4 +17,3 @@ const { createApp } = Vue;
         }
       }
     }).mount('#app');
-}
