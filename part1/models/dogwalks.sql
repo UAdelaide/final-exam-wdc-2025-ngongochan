@@ -81,23 +81,15 @@ INSERT INTO Dogs (name, size, owner_id) VALUES
   'Min',
   'small',
   (SELECT user_id FROM Users WHERE username = 'alice123')
+),
+(
+  'Toro',
+  'large',
+  (SELECT user_id FROM Users WHERE username = 'alice123')
 )
 ;
 
 
-INSERT INTO Dogs (name, size, owner_id)
-VALUES (
-  'Toro',
-  'large',
-  (SELECT user_id FROM Users WHERE username = 'alice123')
-);
-
-INSERT INTO Dogs (name, size, owner_id)
-VALUES (
-  'Noel',
-  'large',
-  (SELECT user_id FROM Users WHERE username = 'carol123')
-);
 
 
 
