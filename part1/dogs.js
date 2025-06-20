@@ -1,14 +1,21 @@
-const { createApp } = Vue;
-createApp({
-    el: #app,
-    data: {
+  const { createApp } = Vue;
+
+  createApp({
+    data() {
+      return {
         dogImage: null
+      };
     },
     methods: {
-    getDog() {
-        const result = fetch('https://dog.ceo/api/breeds/image/random');
-        const data = res.json();
-        this.dogImage = data.message;
+      async getDog() {
+        try {
+          const res = await fetch('https://dog.ceo/api/breeds/image/random');
+          const data = await res.json();
+          this.dogImage = data.message;
+        } catch (error) {
+          console.error("Failed to fetch dog image:", error);
+        }
+      }
     }
-    }
-}).mount('#app');
+  }).mount('#app');
+</script>
