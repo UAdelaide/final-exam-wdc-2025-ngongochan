@@ -13,6 +13,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 
 
+var db = require('../part1/db/db');
 
 // testing if I should place this here because I got yelled by the terminal
 (async () => {
@@ -77,7 +78,6 @@ const userRoutes = require('./routes/userRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
-var db = require('../part1/db/db');
 
 
 
