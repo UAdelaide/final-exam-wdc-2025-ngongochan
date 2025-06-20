@@ -55,7 +55,7 @@ var db;
         (  'Bella',  'small'),
         (  'Toro',  'large'),
         (  'Min',  'small'),
-        (  'Noel',  'large'),
+        (  'Noel',  'large')
       `);
     }
   } catch (err) {
