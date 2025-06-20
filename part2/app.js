@@ -38,6 +38,7 @@ app.use(session({
   }
 }));
 
+// LOG IN
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
     try {
@@ -55,16 +56,6 @@ app.post('/login', async (req, res) => {
     } catch (err) {
         res.status(500).json({ error: 'Something went wrong' });
     }
-});
-
-// LOGOUT ROUTE
-app.post('/logout', (req, res) => {
-  req.session.destroy(err => {
-    if (err) {
-      return res.status(500).json({ error: 'Logout failed' });
-    }
-    res.json({ message: 'Logged out!' });
-  });
 });
 
 
