@@ -132,24 +132,23 @@ app.post('/login', async (req, res) => {
 
 
 function logout() {
-      req.session.destroy(err => {
+    req.session.destroy(err => {
     if (err) {
       return res.status(500).json({ error: 'Logout failed' });
     }
     res.json({ message: 'Logged out!' });
   });
-
 }
 
-// LOG OUT
-app.post('/logout', (req, res) => {
-  req.session.destroy(err => {
-    if (err) {
-      return res.status(500).json({ error: 'Logout failed' });
-    }
-    res.json({ message: 'Logged out!' });
-  });
-});
+// // LOG OUT
+// app.post('/logout', (req, res) => {
+//   req.session.destroy(err => {
+//     if (err) {
+//       return res.status(500).json({ error: 'Logout failed' });
+//     }
+//     res.json({ message: 'Logged out!' });
+//   });
+// });
 
 
 
