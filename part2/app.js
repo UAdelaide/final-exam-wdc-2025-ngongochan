@@ -21,17 +21,8 @@ app.use('/api/users', userRoutes);
 
 
 
-
-
-
-
-
-
-
-
-
-
 var db = require('../part1/db/db');
+
 // testing login and logout
 app.use(session({
   secret: 'mysecret',
