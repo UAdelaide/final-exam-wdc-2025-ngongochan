@@ -78,13 +78,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-var dogsRouter = require('./');
-var usersRouter = require('./routes/users');
+var dogsRouter = require('./routes/dogs');
+var walkersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 
 
 
-app.use('/', indexRouter);
+app.use('/', dogsRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 
