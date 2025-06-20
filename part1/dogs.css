@@ -1,7 +1,7 @@
 * {
     font-family: "Nunito";
     color: grey;
-    box
+    box-sizing: border-box;
 }
 
 #app {
