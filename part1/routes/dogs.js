@@ -1,6 +1,7 @@
 const express = require('express');
 var router = express.Router();
 
+
 // /api/dogs route  (dog_name, size, owner_username)
 router.get('/', async function(req, res) {
     try {
