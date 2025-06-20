@@ -63,8 +63,7 @@ let db;
 })();
 
 
-INSERT INTO Dogs (name, size, owner_id)
-VALUES (
+INSERT INTO Dogs (name, size) VALUES (
   'Max',
   'medium',
   (SELECT user_id FROM Users WHERE username = 'alice123')
