@@ -114,8 +114,8 @@ app.post('/login', async (req, res) => {
       res.redirect('/');
     }
   } catch (err) {
-      console.error(err);
-      res.status(500).json({ error: 'Something went wrong' });
+    console.error(err);
+    res.status(500).json({ error: 'Something went wrong' });
   }
 });
 
