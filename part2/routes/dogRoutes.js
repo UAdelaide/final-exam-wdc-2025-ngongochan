@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db'); // adjust if needed
 
-// GET /api/dogs - return all dogs
+// GET /api/dogs - return ALL dogs
 router.get('/', async (req, res) => {
   try {
     const [dogs] = await db.execute('SELECT * FROM Dogs');
