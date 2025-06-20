@@ -105,13 +105,13 @@ app.post('/login', async (req, res) => {
 
     // redirect based on the user's role
     if (user.role === 'owner') {
-        // app.use(express.static(path.join(__dirname, '/public')));
-        // pay attention to the path, DO NOT include /public!!
-        res.redirect('/owner-dashboard.html');
+      // app.use(express.static(path.join(__dirname, '/public')));
+      // pay attention to the path, DO NOT include /public!!
+      res.redirect('/owner-dashboard.html');
     } else if (user.role === 'walker') {
-        res.redirect('/walker-dashboard.html');
+      res.redirect('/walker-dashboard.html');
     } else {
-        res.redirect('/');
+      res.redirect('/');
     }
   } catch (err) {
       console.error(err);
