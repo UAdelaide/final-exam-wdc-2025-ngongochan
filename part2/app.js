@@ -25,6 +25,13 @@ var db = require('../part1/db/db');
 
 
 
+const connection = await mysql.createConnection({
+    socketPath: '/var/run/mysqld/mysqld.sock',
+    host: '127.0.0.1',
+    user: 'root',
+    password: '', // Set MySQL root password
+    database: 'DogWalkService'
+});
 
 
 // testing login and logout
