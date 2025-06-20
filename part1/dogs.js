@@ -1,5 +1,6 @@
 const { createApp } = Vue;
     createApp({
+      el: #app,
       data: {
           dogImage: null
       },
