@@ -54,6 +54,7 @@ app.post('/login', async (req, res) => {
         // redirect based on the user's role
         if (user.role === 'owner') {
             // app.use(express.static(path.join(__dirname, '/public')));
+            // pay attention to the routes, DO NOT include /public
             res.redirect('/owner-dashboard.html');
         } else if (user.role === 'walker') {
         res.redirect('/walker-dashboard.html');
