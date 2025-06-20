@@ -1,5 +1,4 @@
-function logout(
-    async () => {
+function logout(async () => {
     await fetch('/logout', { method: 'POST' });
-    window.location.href = '/login.html';
+    // window.location.href = '/login.html';
 });
