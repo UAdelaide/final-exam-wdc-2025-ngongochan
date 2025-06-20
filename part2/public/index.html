@@ -63,10 +63,9 @@
         return {
           dogs: [],
           message: 'Welcome to the Dog Walking Service!',
-          dog.img
         };
       },
-      
+
       async created() {
         try {
           const res = await fetch('/api/dogs');
