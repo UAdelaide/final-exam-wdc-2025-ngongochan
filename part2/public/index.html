@@ -58,34 +58,44 @@
 
   <script>
     const { createApp } = Vue;
-    createApp({
-      data() {
-        return {
-          dogs: [],
-          message: 'Welcome to the Dog Walking Service!',
-        };
-      },
+createApp({
+  data() {
+    return {
+      dogs: [],
+      message: 'Welcome to the Dog Walking Service!',
+      dogPhoto: ''  // <-- add this to store single dog photo URL
+    };
+  },
 
-      async getDogInfo() {
-        try {
-          const res = await fetch('/api/dogs');
-          const data = await res.json();
-          this.dogs = data;
-        } catch (err) {
-          console.error('Failed to load dogs:', err);
-        }
-      },
+  // Vue lifecycle hook to run code when component is created
+  async created() {
+    await this.getDogInfo();
+    await this.getDogPhoto();
+  },
 
-      async getDogPhoto() {
-        try {
-          const res = await fetch('https://dog.ceo/api/breeds/image/random');
-          const data = await res.json();
-          this.dogPhoto = data.message;
-        } catch (err) {
-          console.error('Failed to load dog photo:', err);
-        }
+  methods: {
+    async getDogInfo() {
+      try {
+        const res = await fetch('/api/dogs');
+        const data = await res.json();
+        this.dogs = data;
+      } catch (err) {
+        console.error('Failed to load dogs:', err);
       }
-    }).mount('#app');
+    },
+
+    async getDogPhoto() {
+      try {
+        const res = await fetch('https://dog.ceo/api/breeds/image/random');
+        const data = await res.json();
+        this.dogPhoto = data.message;
+      } catch (err) {
+        console.error('Failed to load dog photo:', err);
+      }
+    }
+  }
+}).mount('#app');
+
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
