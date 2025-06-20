@@ -85,8 +85,8 @@ var authRouter = require('./routes/auth');
 
 
 app.use('/', dogsRouter);
-app.use('/users', usersRouter);
-app.use('/auth', authRouter);
+app.use('/users', walkersRouter);
+app.use('/auth', requestsRouter);
 
 
 
