@@ -62,6 +62,14 @@ let db;
   }
 })();
 
+
+INSERT INTO Dogs (name, size, owner_id)
+VALUES (
+  'Max',
+  'medium',
+  (SELECT user_id FROM Users WHERE username = 'alice123')
+);
+
 // Route to return books as JSON
 app.get('/', async (req, res) => {
   try {
