@@ -57,11 +57,10 @@ app.post('/login', async (req, res) => {
         if (user.role === 'owner') {
         res.redirect('./public/owner-dashboard.html');
         } else if (user.role === 'walker') {
-        res.redirect('./public/owner-dashboard.html');
+        res.redirect('./public/walker-dashboard.html');
         } else {
-        res.redirect('/'); // fallback
+        res.redirect('/');
         }
-
     } catch (err) {
         res.status(500).json({ error: 'Something went wrong' });
     }
