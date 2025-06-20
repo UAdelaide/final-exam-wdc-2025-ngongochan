@@ -43,6 +43,8 @@ app.use(session({
 // LOG IN
 app.post('/login', async (req, res) => {
     const { username, password } = req.body;
+
+    // debugging 
     if (typeof username === 'undefined' || typeof password === 'undefined') {
         return res.status(400).json({ error: 'Username and password are required' });
     }
