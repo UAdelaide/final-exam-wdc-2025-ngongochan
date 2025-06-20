@@ -65,6 +65,22 @@
           message: 'Welcome to the Dog Walking Service!'
         };
       }
+
+
+      {
+        return {
+          dogs: []
+          message: 'Welcome to the Dog Walking Service!'
+        };
+      },
+      async created() {
+        try {
+          const res = await fetch('/api/dogs');
+          const data = await res.json();
+          this.dogs = data;
+        } catch (err) {
+          console.error('Failed to load dogs:', err);
+        }
     }).mount('#app');
   </script>
 
