@@ -18,12 +18,12 @@ var db = require('../part1/db/db');
 // testing if I should place this here because I got yelled by the terminal
 (async () => {
   try {
-    // Connect to MySQL without specifying a database
+    // connect to MySQL without specifying a database
     const connection = await mysql.createConnection({
       socketPath: '/var/run/mysqld/mysqld.sock',
       host: '127.0.0.1',
       user: 'root',
-      password: '', // Set MySQL root password
+      password: '',
       database: 'DogWalkService'
     });
 
@@ -31,7 +31,7 @@ var db = require('../part1/db/db');
     await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
     await connection.end();
 
-    // Now connect to the created database
+    // connect to the created database
     db = await mysql.createConnection({
       socketPath: '/var/run/mysqld/mysqld.sock',
       host: '127.0.0.1',
