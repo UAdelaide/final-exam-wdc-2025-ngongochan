@@ -16,8 +16,8 @@ router.get('/api/dogs', async function(req, res) {
         }
         res.json
 
-        });
+        
     } catch(err) {
-    res.status(500).json({ error: 'Failed to fetch books' });
+        res.status(500).json({ error: 'Failed to fetch books' });
     }
 });
