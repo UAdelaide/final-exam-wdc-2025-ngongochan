@@ -87,5 +87,4 @@ app.use('/api/walkrequests/open', requestsRouter);
 app.use('/api/walkers/summary', walkersRouter);
 
 
-
 module.exports = app;
