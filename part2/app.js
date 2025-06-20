@@ -130,15 +130,15 @@ app.post('/login', async (req, res) => {
 });
 
 
-// // LOG OUT
-// app.post('/logout', (req, res) => {
-//   req.session.destroy(err => {
-//     if (err) {
-//       return res.status(500).json({ error: 'Logout failed' });
-//     }
-//     res.json({ message: 'Logged out!' });
-//   });
-// });
+// LOG OUT
+app.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.status(500).json({ error: 'Logout failed' });
+    }
+    res.json({ message: 'Logged out!' });
+  });
+});
 
 
 
