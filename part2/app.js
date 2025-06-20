@@ -51,6 +51,19 @@ app.post('/login', async (req, res) => {
         }
 
         const user = rows[0];
+        
+        req.session.user_id = user.user_id;
+        req.session.role = user.role;
+
+        // Redirect based on role
+        if (user.role === 'owner') {
+        res.redirect('/dashboard/owner');
+        } else if (user.role === 'walker') {
+        res.redirect('/dashboard/walker');
+        } else {
+        res.redirect('/'); // fallback
+        }
+
     } catch (err) {
         res.status(500).json({ error: 'Something went wrong' });
     }
