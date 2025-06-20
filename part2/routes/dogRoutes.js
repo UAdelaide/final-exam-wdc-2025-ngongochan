@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models/db'); // adjust if needed
-const session = require('express-session');
+// const session = require('express-session');
 
 // GET /api/dogs - return ALL dogs
 router.get('/', async (req, res) => {
