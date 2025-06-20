@@ -5,8 +5,8 @@ const { createApp } = Vue;
       },
       methods: {
         getDog() {
-            const res = fetch('https://dog.ceo/api/breeds/image/random');
-            const data = await res.json();
+            const result = fetch('https://dog.ceo/api/breeds/image/random');
+            const data = res.json();
             this.dogImage = data.message;
         }
       }
