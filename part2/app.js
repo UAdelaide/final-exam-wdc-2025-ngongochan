@@ -47,7 +47,7 @@ app.post('/login', async (req, res) => {
             [username, password]
         );
         if (rows.length === 0) {
-            return res.status(401).send('Invalid credentials');
+            return res.status(401).send('Invalid username or password');
         }
 
         const user = rows[0];
