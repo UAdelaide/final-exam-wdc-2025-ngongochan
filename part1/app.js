@@ -46,18 +46,12 @@ let db;
       )
     `);
 
-CREATE TABLE Dogs (
-    dog_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    size ENUM('small', 'medium', 'large') NOT NULL,
-    FOREIGN KEY (owner_id) REFERENCES Users(user_id)
-);
 
     // Insert data if table is empty
-    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
+    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
     if (rows[0].count === 0) {
       await db.execute(`
-        INSERT INTO books (title, author) VALUES
+        INSERT INTO Dogs (title, author) VALUES
         ('1984', 'George Orwell'),
         ('To Kill a Mockingbird', 'Harper Lee'),
         ('Brave New World', 'Aldous Huxley')
