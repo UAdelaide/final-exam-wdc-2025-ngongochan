@@ -87,7 +87,7 @@ app.use('/api/users', userRoutes);
 app.use(session({
   secret: 'mysecret',
   cookie: {
-    maxAge: 30 * 60 * 1000
+    maxAge: 60 * 1000
   }
 }));
 
