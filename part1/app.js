@@ -51,10 +51,12 @@ let db;
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
     if (rows[0].count === 0) {
       await db.execute(`
-        INSERT INTO Dogs (title, author) VALUES
-        ('1984', 'George Orwell'),
-        ('To Kill a Mockingbird', 'Harper Lee'),
-        ('Brave New World', 'Aldous Huxley')
+        INSERT INTO Dogs (name, size) VALUES
+        (  'Max',  'medium'),
+        (  'Bella',  'small'),
+        (  'Toro',  'large'),
+        (  'Min',  'small'),
+        (  'Noel',  'large'),
       `);
     }
   } catch (err) {
@@ -68,7 +70,7 @@ INSERT INTO Dogs (name, size) VALUES
 (  'Bella',  'small'),
 (  'Toro',  'large'),
 (  'Min',  'small'),
-(  'Noel',  'medium'),
+(  'Noel',  'large'),
 
 
 // Route to return books as JSON
