@@ -39,7 +39,7 @@ const fetch = require('node-fetch'); // Needed for external API call
 
 // GET /api/dogs - return only dogs for the logged-in user, with images
 router.get('/', async (req, res) => {
-  const ownerID = req.session?.user_id;
+  const ownerID = req.session.user_id;
 
   // if (!ownerID) {
   //   return res.status(401).json({ error: 'Not logged in' });
