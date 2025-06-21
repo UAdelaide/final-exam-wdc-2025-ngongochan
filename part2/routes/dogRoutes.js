@@ -39,14 +39,14 @@ const fetch = require('node-fetch'); // Needed for external API call
 
 // GET /api/dogs - return only dogs for the logged-in user, with images
 router.get('/', async (req, res) => {
-  const ownerId = req.session?.user_id;
+  const ownerID = req.session?.user_id;
 
-  if (!ownerId) {
-    return res.status(401).json({ error: 'Not logged in' });
-  }
+  // if (!ownerID) {
+  //   return res.status(401).json({ error: 'Not logged in' });
+  // }
 
   try {
-    const [dogs] = await db.execute('SELECT * FROM Dogs WHERE owner_id = ?', [ownerId]);
+    const [dogs] = await db.execute('SELECT * FROM Dogs WHERE owner_id = ?', [ownerID]);
 
     // Fetch and attach random image to each dog
     const dogsWithImages = await Promise.all(
