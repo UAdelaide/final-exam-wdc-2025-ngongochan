@@ -11,9 +11,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 
-var db = require('../part1/db/db'); //?
+var db = require('../part1/db/db'); // ?
 
-// testing if I should place this here because I got yelled by the terminal
 (async () => {
   try {
     // connect to MySQL without specifying a database
@@ -64,7 +63,6 @@ var db = require('../part1/db/db'); //?
   }
 })();
 
-
 // routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -73,7 +71,6 @@ const dogRoutes = require('./routes/dogRoutes');
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/dogs', dogRoutes);
-
 
 // testing login and logout
 app.use(session({
