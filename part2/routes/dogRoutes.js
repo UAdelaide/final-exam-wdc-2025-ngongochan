@@ -13,9 +13,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
-
 // /api/dogs route  (dog_name, size, owner_username)
 router.get('/', async function(req, res) {
     try {
