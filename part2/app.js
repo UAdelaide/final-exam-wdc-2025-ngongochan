@@ -10,7 +10,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
-
 var db = require('../part1/db/db'); // ?
 
 (async () => {
@@ -72,7 +71,7 @@ app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/dogs', dogRoutes);
 
-// testing login and logout
+// SESSION
 app.use(session({
   secret: 'mysecret',
   cookie: {
