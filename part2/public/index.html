@@ -56,43 +56,43 @@
     </div>
   </div>
 
-<script>
-  const { createApp } = Vue;
+  <script>
+    const { createApp } = Vue;
 
-  createApp({
-    data() {
-      return {
-        dogs: [],
-        message: 'Welcome to the Dog Walking Service!'
-      };
-    },
-    async created() {
-      try {
-        const res = await fetch('/api/dogs');
-        const data = await res.json();
+    createApp({
+      data() {
+        return {
+          dogs: [],
+          message: 'Welcome to the Dog Walking Service!'
+        };
+      },
+      async created() {
+        try {
+          const res = await fetch('/api/dogs');
+          const data = await res.json();
 
-        // For each dog, fetch a random image
-        const dogsWithPhotos = await Promise.all(
-          data.map(async (dog) => {
-            try {
-              const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
-              const imgData = await imgRes.json();
-              dog.image = imgData.message; // attach the image URL
-            } catch (imgErr) {
-              console.error('Error fetching dog image:', imgErr);
-              dog.image = ''; // fallback to empty string if fetch fails
-            }
-            return dog;
-          })
-        );
+          // For each dog, fetch a random image
+          const dogsWithPhotos = await Promise.all(
+            data.map(async (dog) => {
+              try {
+                const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
+                const imgData = await imgRes.json();
+                dog.image = imgData.message; // attach the image URL
+              } catch (imgErr) {
+                console.error('Error fetching dog image:', imgErr);
+                dog.image = ''; // fallback to empty string if fetch fails
+              }
+              return dog;
+            })
+          );
 
-        this.dogs = dogsWithPhotos;
-      } catch (err) {
-        console.error('Failed to load dogs:', err);
+          this.dogs = dogsWithPhotos;
+        } catch (err) {
+          console.error('Failed to load dogs:', err);
+        }
       }
-    }
-  }).mount('#app');
-</script>
+    }).mount('#app');
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
