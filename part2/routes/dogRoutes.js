@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   try {
     const [dogs] = await db.execute('SELECT * FROM Dogs');
 
-    // Attach a random image to each dog
+    // attach a random image to each dog
     const dogsWithImages = await Promise.all(
       dogs.map(async (dog) => {
         try {
