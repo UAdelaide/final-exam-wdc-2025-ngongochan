@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
-var db = require('./models'); // ?
+var db = require('./models/db'); // ?
 
 (async () => {
   try {
