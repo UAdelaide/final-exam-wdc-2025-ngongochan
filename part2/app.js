@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 
-var db = require('../part1/db/db');
+var db = require('../part1/db/db'); //?
 
 // testing if I should place this here because I got yelled by the terminal
 (async () => {
