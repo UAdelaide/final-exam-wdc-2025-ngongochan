@@ -125,8 +125,17 @@
           }
         }
 
+        async function loadDogs() {
+          try {
+            const res = await fetch('/api/dogs');
+            dogs.value = await res.json();
+          } catch (err) {
+            console.error('Failed to fetch dogs:', err);
+          }
+        }
         onMounted(() => {
           loadWalks();
+          loadDogs();
         });
 
         async function logout() {
